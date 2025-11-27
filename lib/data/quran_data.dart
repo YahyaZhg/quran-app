@@ -18,9 +18,8 @@ class QuranData {
         "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_bitrate/"),
   ];
 
-  static String _fmt(int surah, int ayah) {
-    return "${surah.toString().padLeft(3, '0')}${ayah.toString().padLeft(3, '0')}.mp3";
-  }
+  static String _fmt(int surah, int ayah) =>
+      "${surah.toString().padLeft(3, '0')}${ayah.toString().padLeft(3, '0')}.mp3";
 
   static List<AyahModel> generateFullQuran() {
     List<AyahModel> allAyahs = [];
@@ -38,7 +37,7 @@ class QuranData {
           id: verseIndex,
           globalId: globalIdCounter++,
           surahName: surahName,
-          surahNumber: surahIndex, // إضافة رقم السورة
+          surahNumber: surahIndex,
           pageNumber: pageNum,
           juz: juz,
           text: quran.getVerse(surahIndex, verseIndex, verseEndSymbol: false),
@@ -48,4 +47,10 @@ class QuranData {
     }
     return allAyahs;
   }
+}
+
+class Reciter {
+  final String name;
+  final String serverUrl;
+  Reciter(this.name, this.serverUrl);
 }

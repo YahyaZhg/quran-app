@@ -10,21 +10,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.1.0           # للاتصال بالـ API
-  audioplayers: ^5.2.1   # لتشغيل الصوتيات
-  google_fonts: ^6.1.0   # لخطوط عربية جميلة
-  provider: ^6.0.5       # لإدارة حالة التطبيق
-  quran: ^1.0.0          # مكتبة مساعدة
-  
-  # 👇👇👇 هذه هي المكتبة الناقصة التي كانت تسبب المشكلة 👇👇👇
+  provider: ^6.0.5
+  google_fonts: ^6.1.0
+  audioplayers: ^5.2.1
+  quran: ^1.0.0
   scrollable_positioned_list: ^0.3.8 
-
   cupertino_icons: ^1.0.8
+  #للثيمات هسه والشكليات
+  flex_color_scheme: ^8.0.2
+  shared_preferences: ^2.2.2
+  url_launcher: ^6.2.1  # <--- أضف هذا السطر
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
