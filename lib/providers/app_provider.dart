@@ -117,9 +117,24 @@ class AppProvider with ChangeNotifier {
   void playNextAyah() {
     int currentIndex =
         _allAyahs.indexWhere((a) => a.globalId == _currentGlobalId);
+
     if (currentIndex != -1 && currentIndex < _allAyahs.length - 1) {
-      playAyah(_allAyahs[currentIndex + 1]);
+      // الآية القادمة
+      AyahModel nextAyah = _allAyahs[currentIndex + 1];
+
+      // الآية الحالية
+      AyahModel currentAyah = _allAyahs[currentIndex];
+
+      // === الإضافة السحرية: فحص رقم الصفحة ===
+      // إذا كانت الصفحة مختلفة، يجب أن نقلب الصفحة
+      if (nextAyah.pageNumber != currentAyah.pageNumber) {
+        goToPage(nextAyah.pageNumber);
+      }
+
+      // ثم نشغل الآية (وهذا سيقوم بالتظليل)
+      playAyah(nextAyah);
     } else {
+      // انتهى المصحف أو القراءة
       _audioPlayer.stop();
       _isPlaying = false;
       _currentGlobalId = -1;
